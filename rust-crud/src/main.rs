@@ -1,14 +1,14 @@
 #[macro_use] extern crate rocket;
-
-use rocket::response::content;
+use rocket::serde::{json::Json};
+use rust_crud::models::Post;
 
 mod cruds;
 mod models;
 
+
 #[get("/")]
-fn index() -> content::RawJson<&'static str> {
-    content::RawJson("{ 'hi': 'world' }")
-    // cruds::read_posts()
+fn index() -> Json<Vec<Post>> {
+    return Json(cruds::read_posts());
 }
 
 #[launch]

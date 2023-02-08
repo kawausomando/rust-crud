@@ -1,6 +1,8 @@
 use diesel::prelude::*;
+use rocket::serde::Serialize;
 
-#[derive(Queryable)]
+#[derive(Queryable, Serialize)]
+#[serde(crate = "rocket::serde")]
 pub struct Post {
     pub id: i32,
     pub title: String,

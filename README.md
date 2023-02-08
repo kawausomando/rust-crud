@@ -27,3 +27,11 @@ diesel migration generate [migration_name]
 ```
 diesel migration run
 ```
+
+## ヘルプ
+
+libqlのエラーがでたら以下コマンドでキャッシュ削除&再ビルド
+```
+cargo clean
+cargo build
+```
